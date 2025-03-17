@@ -9,6 +9,7 @@ service Auth {
   rpc Register (RegisterRequest) returns (RegisterResponse);
   rpc Login (LoginRequest) returns (LoginResponse);
   rpc IsAdmin (IsAdminRequest) returns (IsAdminResponse);
+  rpc SetAdmin (SetAdminRequest) returns (SetAdminResponse);
 }
 
 message RegisterRequest {
@@ -35,5 +36,13 @@ message IsAdminRequest {
 }
 
 message IsAdminResponse {
+  bool is_admin = 1;
+}
+
+message SetAdminRequest {
+  string email = 1;
+}
+
+message SetAdminResponse {
   bool is_admin = 1;
 }
